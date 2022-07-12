@@ -6,7 +6,7 @@
     "dependencies": {
         "core": "*",
         "bluetooth": "*",
-         "neopixel": "github:kiliansinger/pxt-neopixel#v0.7.4"
+         "neopixel": "github:kiliansinger/pxt-neopixel#v0.7.5"
     },
     "files": [
         "README.md",
