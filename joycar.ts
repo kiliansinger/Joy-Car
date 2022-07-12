@@ -71,7 +71,7 @@ enum SensorLRSelection
 //% color="#275c6b" icon="\uf1b9" weight=95
 namespace JoyCar {
     // Light Variables
-    //let strip = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB);
+    let strip = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB);
 
     let biasL = 100;
     let biasR = 100;
