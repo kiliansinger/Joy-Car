@@ -1,12 +1,12 @@
 {
     "name": "Joy-Car",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "description": "MakeCode package for Joy-IT Joy-Car with bluetooth",
     "license": "MIT",
     "dependencies": {
         "core": "*",
         "bluetooth": "*",
-         "neopixel": "github:microsoft/pxt-neopixel#v0.7.3"
+         "neopixel": "github:kiliansinger/pxt-neopixel#v0.7.4"
     },
     "files": [
         "README.md",
