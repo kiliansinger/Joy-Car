@@ -1,4 +1,4 @@
-# MakeCode Package for Joy-IT Joy-Car
+# MakeCode Package for Joy-IT Joy-Car with Bluetooth enabled
 
 This library provides a Microsoft Makecode package for the Joy-IT Joy-Car.
 See https://joy-it.net/en/products/mb-joy-car for more details.
