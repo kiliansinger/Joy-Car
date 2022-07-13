@@ -1,7 +1,7 @@
 function standBy () {
     JoyCar.stop(StopIntensity.Intense)
-    JoyCar.brakelight(ToggleSwitch.On)
-    JoyCar.hazardlights(ToggleSwitch.On)
+    //JoyCar.brakelight(ToggleSwitch.On)
+    //JoyCar.hazardlights(ToggleSwitch.On)
     if (standByRuntime == 0) {
         standByRuntime = input.runningTime()
     }
@@ -25,8 +25,8 @@ function standBy () {
     }
 }
 function obstacleAvoidance () {
-    JoyCar.brakelight(ToggleSwitch.Off)
-    JoyCar.hazardlights(ToggleSwitch.Off)
+    //JoyCar.brakelight(ToggleSwitch.Off)
+    //JoyCar.hazardlights(ToggleSwitch.Off)
     basic.showLeds(`
         . . # . .
         . . # . .
@@ -36,35 +36,35 @@ function obstacleAvoidance () {
         `)
     if (JoyCar.obstacleavoidance(SensorLRSelection.Left)) {
         JoyCar.stop(StopIntensity.Intense)
-        JoyCar.brakelight(ToggleSwitch.On)
+        //JoyCar.brakelight(ToggleSwitch.On)
         basic.pause(200)
-        JoyCar.brakelight(ToggleSwitch.Off)
-        JoyCar.reversinglight(ToggleSwitch.On)
+        //JoyCar.brakelight(ToggleSwitch.Off)
+        //JoyCar.reversinglight(ToggleSwitch.On)
         JoyCar.drive(FRDirection.Reverse, 50)
         basic.pause(300)
-        JoyCar.reversinglight(ToggleSwitch.Off)
+        //JoyCar.reversinglight(ToggleSwitch.Off)
         JoyCar.turn(FRDirection.Forward, LRDirection.Right, 40, 0)
         basic.pause(300)
     } else if (JoyCar.obstacleavoidance(SensorLRSelection.Right)) {
         JoyCar.stop(StopIntensity.Intense)
-        JoyCar.brakelight(ToggleSwitch.On)
+        //JoyCar.brakelight(ToggleSwitch.On)
         basic.pause(200)
-        JoyCar.brakelight(ToggleSwitch.Off)
-        JoyCar.reversinglight(ToggleSwitch.On)
+        //JoyCar.brakelight(ToggleSwitch.Off)
+        //JoyCar.reversinglight(ToggleSwitch.On)
         JoyCar.drive(FRDirection.Reverse, 50)
         basic.pause(300)
-        JoyCar.reversinglight(ToggleSwitch.Off)
+        //JoyCar.reversinglight(ToggleSwitch.Off)
         JoyCar.turn(FRDirection.Forward, LRDirection.Left, 40, 0)
         basic.pause(300)
     } else if (JoyCar.obstacleavoidance(SensorLRSelection.Left) && JoyCar.obstacleavoidance(SensorLRSelection.Right)) {
         JoyCar.stop(StopIntensity.Intense)
-        JoyCar.brakelight(ToggleSwitch.On)
+        //JoyCar.brakelight(ToggleSwitch.On)
         basic.pause(200)
-        JoyCar.brakelight(ToggleSwitch.Off)
-        JoyCar.reversinglight(ToggleSwitch.On)
+        //JoyCar.brakelight(ToggleSwitch.Off)
+        //JoyCar.reversinglight(ToggleSwitch.On)
         JoyCar.drive(FRDirection.Reverse, 50)
         basic.pause(100)
-        JoyCar.reversinglight(ToggleSwitch.Off)
+        //JoyCar.reversinglight(ToggleSwitch.Off)
         JoyCar.stop(StopIntensity.Soft)
         basic.pause(100)
         JoyCar.turn(FRDirection.Forward, LRDirection.Left, 40, 0)
@@ -83,8 +83,8 @@ input.onButtonPressed(Button.A, function () {
     }
 })
 function lineTracking () {
-    JoyCar.brakelight(ToggleSwitch.Off)
-    JoyCar.hazardlights(ToggleSwitch.Off)
+    //JoyCar.brakelight(ToggleSwitch.Off)
+    //JoyCar.hazardlights(ToggleSwitch.Off)
     basic.showLeds(`
         # . # . #
         # . # . #
@@ -104,23 +104,23 @@ function lineTracking () {
         JoyCar.turn(FRDirection.Forward, LRDirection.Left, 50, 0)
     } else if (JoyCar.linefinder(SensorLCRSelection.Left) && (!(JoyCar.linefinder(SensorLCRSelection.Center)) && JoyCar.linefinder(SensorLCRSelection.Right))) {
         JoyCar.stop(StopIntensity.Intense)
-        JoyCar.brakelight(ToggleSwitch.On)
+      //  JoyCar.brakelight(ToggleSwitch.On)
     } else if (JoyCar.linefinder(SensorLCRSelection.Left) && (JoyCar.linefinder(SensorLCRSelection.Center) && !(JoyCar.linefinder(SensorLCRSelection.Right)))) {
         JoyCar.turn(FRDirection.Forward, LRDirection.Left, 50, 2)
     } else if (JoyCar.linefinder(SensorLCRSelection.Left) && (JoyCar.linefinder(SensorLCRSelection.Center) && JoyCar.linefinder(SensorLCRSelection.Right))) {
         JoyCar.drive(FRDirection.Forward, 50)
     } else {
         JoyCar.stop(StopIntensity.Intense)
-        JoyCar.brakelight(ToggleSwitch.On)
-        JoyCar.hazardlights(ToggleSwitch.On)
+      //  JoyCar.brakelight(ToggleSwitch.On)
+      //  JoyCar.hazardlights(ToggleSwitch.On)
     }
 }
 function hazardLights () {
     hazardRuntime = input.runningTime()
     while (input.runningTime() - hazardRuntime <= 2000) {
-        JoyCar.hazardlights(ToggleSwitch.On)
+       // JoyCar.hazardlights(ToggleSwitch.On)
     }
-    JoyCar.hazardlights(ToggleSwitch.Off)
+   // JoyCar.hazardlights(ToggleSwitch.Off)
 }
 let hazardRuntime = 0
 let standByRuntime = 0
@@ -128,19 +128,19 @@ let menuMode = 0
 basic.showString("Hello!")
 menuMode = 0
 standByRuntime = 0
-JoyCar.light(ToggleSwitch.On)
+//JoyCar.light(ToggleSwitch.On)
 basic.pause(300)
-JoyCar.light(ToggleSwitch.Off)
+//JoyCar.light(ToggleSwitch.Off)
 basic.pause(300)
-JoyCar.light(ToggleSwitch.On)
+//JoyCar.light(ToggleSwitch.On)
 basic.pause(1000)
-JoyCar.light(ToggleSwitch.Off)
+//JoyCar.light(ToggleSwitch.Off)
 basic.pause(300)
-JoyCar.brakelight(ToggleSwitch.On)
+//JoyCar.brakelight(ToggleSwitch.On)
 basic.pause(300)
-JoyCar.brakelight(ToggleSwitch.Off)
+//JoyCar.brakelight(ToggleSwitch.Off)
 basic.pause(300)
-hazardLights()
+//hazardLights()
 JoyCar.buzzer(Melodies.Dadadadum, MelodyOptions.Once)
 basic.forever(function () {
     if (menuMode == 0) {
