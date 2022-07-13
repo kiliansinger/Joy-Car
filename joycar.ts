@@ -71,7 +71,7 @@ enum SensorLRSelection
 //% color="#275c6b" icon="\uf1b9" weight=95
 namespace JoyCar {
     // Light Variables
-    let strip = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB);
+    //let strip = neopixel.create(DigitalPin.P0, 8, NeoPixelMode.RGB);
 
     let biasL = 100;
     let biasR = 100;
@@ -220,95 +220,95 @@ namespace JoyCar {
       driveJoyCar(ch2, ch3, ch4, ch5);
     }
 
-    /**
-     * Turn on/off the front light
-     */
-    //% block="Toggle light%toggle"
-    //% subcategory=LEDs
-    //% weight=100
-    export function light(toggle: ToggleSwitch) {
-      if(toggle == ToggleSwitch.On){
-        headlights = true;
-      }
-      else {
-        headlights = false;
-      }
-      setLights();
-    }
+//    /**
+//     * Turn on/off the front light
+//     */
+//    //% block="Toggle light%toggle"
+//    //% subcategory=LEDs
+//    //% weight=100
+//    export function light(toggle: ToggleSwitch) {
+//      if(toggle == ToggleSwitch.On){
+//        headlights = true;
+//      }
+//      else {
+//        headlights = false;
+//      }
+//      setLights();
+//    }
 
-    /**
-     * Turn on/off the brake light
-     */
-    //% block="Toggle brakelight%toggle"
-    //% subcategory=LEDs
-    //% weight=90
-    export function brakelight(toggle: ToggleSwitch) {
-        if(toggle == ToggleSwitch.On){
-          breakLights = true;
-        }
-        else {
-          breakLights = false;
-        }
-        setLights();
-    }
+//    /**
+//     * Turn on/off the brake light
+//     */
+//    //% block="Toggle brakelight%toggle"
+//    //% subcategory=LEDs
+//    //% weight=90
+//    export function brakelight(toggle: ToggleSwitch) {
+//       if(toggle == ToggleSwitch.On){
+//          breakLights = true;
+//        }
+//        else {
+//          breakLights = false;
+//        }
+//        setLights();
+//    }
 
-    /**
-     * Turn on/off left/right indicator
-     */
-    //% block="Turn %toggle %selection indicator"
-    //% subcategory=LEDs
-    //% weight=80
-    export function indicator(toggle: ToggleSwitch, selection: SensorLRSelection) {
-      if(toggle == ToggleSwitch.On) {
-        if(selection == SensorLRSelection.Left) {
-          indicatorLeft = true;
-        }
-        if(selection == SensorLRSelection.Right) {
-          indicatorRight = true;
-        }
-      }
-      else {
-        if(selection == SensorLRSelection.Left) {
-          indicatorLeft = false;
-        }
-        if(selection == SensorLRSelection.Right) {
-          indicatorRight = false;
-        }
-      }
-      setLights();
-    }
+//    /**
+//     * Turn on/off left/right indicator
+//     */
+//    //% block="Turn %toggle %selection indicator"
+//    //% subcategory=LEDs
+//    //% weight=80
+//    export function indicator(toggle: ToggleSwitch, selection: SensorLRSelection) {
+//      if(toggle == ToggleSwitch.On) {
+//        if(selection == SensorLRSelection.Left) {
+//          indicatorLeft = true;
+//        }
+//        if(selection == SensorLRSelection.Right) {
+//          indicatorRight = true;
+//        }
+//      }
+//      else {
+//        if(selection == SensorLRSelection.Left) {
+//          indicatorLeft = false;
+//        }
+//        if(selection == SensorLRSelection.Right) {
+//          indicatorRight = false;
+//        }
+//      }
+//      setLights();
+//    }
 
-    /**
-     * Turn on/off hazard lights
-     */
-    //% block="Turn %toggle hazard lights"
-    //% subcategory=LEDs
-    //% weight=70
-    export function hazardlights(toggle: ToggleSwitch) {
-      if(toggle == ToggleSwitch.On){
-        hazard = true;
-      }
-      else {
-        hazard = false;
-      }
-      setLights();
-    }
+//    /**
+//     * Turn on/off hazard lights
+//     */
+//    //% block="Turn %toggle hazard lights"
+//    //% subcategory=LEDs
+//    //% weight=70
+//    export function hazardlights(toggle: ToggleSwitch) {
+//      if(toggle == ToggleSwitch.On){
+//        hazard = true;
+//      }
+//      else {
+//        hazard = false;
+//      }
+//      setLights();
+//    }
 
-    /**
-     * Turn on/off reverse light
-     */
-    //% block="Toggle reverse light%toggle"
-    //% subcategory=LEDs
-    //% weight=60
-    export function reversinglight(toggle: ToggleSwitch) {
-      if(toggle == ToggleSwitch.On){
-        reverseLight = true;
-      }
-      else {
-        reverseLight = false;
-      }
-      setLights();
-    }
+//    /**
+//     * Turn on/off reverse light
+//     */
+//    //% block="Toggle reverse light%toggle"
+//    //% subcategory=LEDs
+//    //% weight=60
+//    export function reversinglight(toggle: ToggleSwitch) {
+//      if(toggle == ToggleSwitch.On){
+//        reverseLight = true;
+//      }
+//      else {
+//        reverseLight = false;
+//      }
+//      setLights();
+//    }
 
 
 
@@ -378,12 +378,12 @@ namespace JoyCar {
       }
     }
 
-    /**
-     * Buzzer
-     */
-    //% block="start music %melody repeating %options"
-    //% subcategory="Additional Functions"
-    //% weight=100
+//    /**
+//     * Buzzer
+//     */
+//    //% block="start music %melody repeating %options"
+//    //% subcategory="Additional Functions"
+//    //% weight=100
     export function buzzer(melody: Melodies, options: MelodyOptions): void{
         pins.analogSetPitchPin(AnalogPin.P16);
         music.beginMelody(music.builtInMelody(melody), options);
@@ -405,7 +405,8 @@ namespace JoyCar {
 
     // ------------------------------------------------------------
     // Light controller
-    function setLights(){
+ /* 
+ function setLights(){
       // Check last execution time to filter multiple execution bounces
       if(input.runningTime() - lightGlobalInterval >= 50) {
         strip.setPixelColor(0, 0x000000);
@@ -505,7 +506,7 @@ namespace JoyCar {
 
       strip.show();
     }
-
+*/
     // Drive controller
     function driveJoyCar(ch2: number, ch3: number, ch4: number, ch5: number){
       // Map PWM numbers to working range of motors
